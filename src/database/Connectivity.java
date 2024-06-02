@@ -16,7 +16,7 @@ public class Connectivity {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection connect = DriverManager.getConnection(URL, USER, PASSWORD);
-            System.out.println("👍 Connexion à la base de données '" + DATABASE + "' réussie...😎");
+//            System.out.println("👍 Connexion à la base de données '" + DATABASE + "' réussie...😎");
             return connect;
         } catch (ClassNotFoundException e) {
             System.out.println("Driver introuvable " + e.getMessage());

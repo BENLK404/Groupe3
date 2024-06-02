@@ -103,11 +103,12 @@ public class Etudiant {
             preparedStatement.setString(5, adresseEtudiant);
             preparedStatement.setString(6, emailEtudiant);
             preparedStatement.setString(7, telephoneEtudiant);
-            if (idClasse != 0) {
-                preparedStatement.setInt(8, idClasse);
-            } else {
-                preparedStatement.setNull(8, Types.INTEGER);
-            }
+            preparedStatement.setInt(8, idClasse);
+//            if (idClasse != 0) {
+//                preparedStatement.setInt(8, idClasse);
+//            } else {
+//                preparedStatement.setNull(8, Types.INTEGER);
+//            }
             preparedStatement.setInt(9, idEtudiant);
             preparedStatement.executeUpdate();
             System.out.println("Modification reussi ");

@@ -1,5 +1,7 @@
 
+import controllers.MyController;
 import models.Etudiant;
+import models.LaClasse;
 import models.Matiere;
 import models.Note;
 import views.MenuPrincipale;
@@ -14,10 +16,15 @@ public class Main {
 //        Etudiant etudiant = new Etudiant();
 //
 //        Matiere matiere = new Matiere();
-        MenuPrincipale menuPrincipale = new MenuPrincipale();
-        menuPrincipale.demanderInformationsEtudiant();
+//        MenuPrincipale menuPrincipale = new MenuPrincipale();
+//        menuPrincipale.demanderInformationsEtudiant();
+//        menuPrincipale.demanderInformationsMatiere();
+//        menuPrincipale.demanderInformationsNote();
 //            Note note = new Note(10.59,1,1,"Passable");
 //            note.addNote();
+        MyController myController = new MyController();
+        myController.run();
+//        LaClasse.getIdClasseByName("SIL21");
 //        etudiant.updateEtudiant(1,"Aguem","Espoir","M","Assivito","agenpdmn@gmail.com","8746672874",LocalDate.of(2000,4,12),1);
     }
 }

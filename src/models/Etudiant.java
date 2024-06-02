@@ -103,11 +103,12 @@ public class Etudiant {
             preparedStatement.setString(5, adresseEtudiant);
             preparedStatement.setString(6, emailEtudiant);
             preparedStatement.setString(7, telephoneEtudiant);
-            if (idClasse != 0) {
-                preparedStatement.setInt(8, idClasse);
-            } else {
-                preparedStatement.setNull(8, Types.INTEGER);
-            }
+            preparedStatement.setInt(8, idClasse);
+//            if (idClasse != 0) {
+//                preparedStatement.setInt(8, idClasse);
+//            } else {
+//                preparedStatement.setNull(8, Types.INTEGER);
+//            }
             preparedStatement.setInt(9, idEtudiant);
             preparedStatement.executeUpdate();
             System.out.println("Modification reussi ");
@@ -115,13 +116,23 @@ public class Etudiant {
             nullPointerException.printStackTrace();
             }
     }
-    public void deleteEtudiant(int idEtudiant) throws SQLException {
+//    public void deleteEtudiant(int idEtudiant) throws SQLException {
+//        Connection connection = Connectivity.getDbConnection();
+//        String sql = "delete from etudiants where id_etudiant = ?";
+//        try (PreparedStatement preparedStatement = connection.prepareStatement(sql)){
+//            preparedStatement.setInt(1, idEtudiant);
+//            preparedStatement.executeUpdate();
+//            System.out.println("Suppression reussi ");
+//        }
+//    }
+    public void deleteEtudiant(String nomEtudiant, String prenomEtudiant) throws SQLException {
         Connection connection = Connectivity.getDbConnection();
-        String sql = "delete from etudiants where id_etudiant = ?";
+        String sql = "delete from etudiants where nom = ? and  prenom =?";
         try (PreparedStatement preparedStatement = connection.prepareStatement(sql)){
-            preparedStatement.setInt(1, idEtudiant);
+            preparedStatement.setString(1, nomEtudiant);
+            preparedStatement.setString(2, prenomEtudiant);
             preparedStatement.executeUpdate();
-            System.out.println("Suppression reussi ");
+            System.out.println("Suppression Effectuer ");
         }
     }
     public void getEtudiantById(int idEtudiant) throws SQLException {
@@ -144,6 +155,7 @@ public class Etudiant {
             }
         }
     }
+
 
     public int getIdEtudiant() {
         return idEtudiant;
@@ -217,6 +229,7 @@ public class Etudiant {
     public void setIdClasse(int idClasse) {
         this.idClasse = idClasse;
     }
+
 
     @Override
     public String toString() {
